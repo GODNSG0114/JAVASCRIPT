@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">change theme</button>
+    <script>
+       const btn = document.querySelector('#btn')
+       const body  = document.querySelector("body")
+        let f = true;
+        btn.addEventListener("click", (e) => {
+         if(f) {
+             f = false;
+            body.style.backgroundColor  = "black"
+        }else{
+             body.style.backgroundColor  = "white"
+             f = true;
+        }
+        }, false)
+
+    </script>
+</body>
+
+</html>
