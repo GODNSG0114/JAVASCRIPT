@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //// function to print and refered to setInterval
+    const sysDate = function curTime() {
+        console.log("Nikhil");
+        console.log(Date.now());
+
+    }
+
+    //// setInterval process depend on "click" event on "start" button
+    let  remove;
+    document.querySelector("#start").
+        addEventListener("click", () => {
+            console.log("printing started")
+             remove = setInterval(sysDate, 2000);
+        }, false)
+
+
+    //// clearInterval process depend on "click" event on "Stop" button
+    document.querySelector("#stop").
+        addEventListener("click", () => {
+           console.log("printing stoped");
+           clearInterval(remove);
+        }, false)
+  
+
+</script>
+
+</html>
