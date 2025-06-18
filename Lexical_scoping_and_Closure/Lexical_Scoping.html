@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+
+<body style="background-color: #313131;">
+    <button id="orange"></button> 
+    <button id="green"></button>
+</body>
+<script>
+
+    ///++++++++++++++++++++++++++++  Lexical Scoping   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /*
+    function outer(){
+                let userName = "nikhil";
+                function inner(){
+                    let secrete = "my123";
+                    console.log("INNER" , userName)
+                }
+    
+                function innerTwo(){
+                    console.log("INNERTWO" , userName)
+                    console.log(secrete)                                 // not accessible
+                 }
+                inner();
+                innerTwo();
+            }
+            outer()
+            console.log( "TOO OUTER", userName)
+    
+    */
+    //+++++++++++++++++++++++++++++++  Closure   ++++++++++++++++++++++++++++++++++///////////////////////
+
+    function makeFunc() {
+        const name = "Mozilla"
+        function displayName() {
+            console.log(name)
+        }
+        return displayName
+    }
+    const myFunc = makeFunc();
+    myFunc();
+
+</script>
+
+<script>
+  // ++++++++++++++++++++++++++++++++++ real world example of Closure ++++++++++++++++++++++++++++++++++++++++
+
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = "orange"
+    // }
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = "green"
+    // }
+
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`              // it direct change color but we want change color on click event 
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+    document.getElementById("orange").onclick = clickHandler("orange")
+    document.getElementById("green").onclick = clickHandler("green")
+</script>
+
+</html>
